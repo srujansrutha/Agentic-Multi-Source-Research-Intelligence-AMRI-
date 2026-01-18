@@ -2,9 +2,13 @@ fastapi
 uvicorn
 python-dotenv
 langchain
-langchain-openai
+langchain-google-genai
 langchain-community
+langchain
+langchain-ollama
 langgraph
+langgraph-checkpoint
+langgraph-checkpoint-redis
 qdrant-client
 redis
 tavily-python
@@ -15,3 +19,4 @@ pydantic-settings
 black
 isort
 flake8
+numpy

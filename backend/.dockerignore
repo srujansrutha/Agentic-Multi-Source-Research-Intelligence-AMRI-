@@ -1,0 +1,47 @@
+# Python virtual environment
+venv/
+env/
+
+# Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Environment variables (use .env.example instead)
+.env
+.env.local
+
+# Version control
+.git/
+.gitignore
+.gitattributes
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build & dist
+build/
+dist/
+*.egg
+
+# Logs
+*.log
+logs/
+
+# Configuration files that shouldn't be in image
+docker-compose.yml
+README.md
+Dockerfile
+.dockerignore

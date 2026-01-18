@@ -23,7 +23,7 @@ It solves the "Cost vs. Latency" dilemma of Generative AI by implementing a Redi
 
 ### 3. 🛡️ Privacy & Sovereignty
 - **Dual-Inference Engine**: Configurable via `.env`
-- **Cloud**: Uses OpenAI GPT-4o for maximum performance
+- **Cloud**: Uses GEMINI models for maximum performance
 - **Local**: Switches to Ollama (Llama 3) for 100% data privacy within the corporate firewall
 
 ### 4. 📝 Source-Grounded Reporting
@@ -54,7 +54,7 @@ AMRI/
 │   │       ├── __init__.py
 │   │       ├── redis_cache.py      # Redis Client for Semantic Caching
 │   │       ├── vector_db.py        # Qdrant setup & PDF Ingestion logic
-│   │       └── llm_factory.py      # Switcher: OpenAI (Cloud) <-> Ollama (Local)
+│   │       └── llm_factory.py      # Switcher: GEMINI (Cloud) <-> Ollama (Local)
 │   ├── Dockerfile                  # Backend container build instructions
 │   └── requirements.txt            # Python dependencies
 │
@@ -79,7 +79,7 @@ AMRI/
 │   └── redis_data/                 # Cache data
 │
 ├── docker-compose.yml              # Container orchestration
-├── .env                            # Environment secrets (OPENAI_API_KEY, TAVILY_API_KEY)
+├── .env                            # Environment secrets (GEMINI_API_KEY, TAVILY_API_KEY)
 ├── .gitignore                      # Git ignore rules
 └── README.md                       # This file
 ```
@@ -115,7 +115,7 @@ AMRI/
                               │
                         ┌─────▼──────┐
                         │ LLM Engine  │
-                        │ OpenAI/     │
+                        │ GEMINI/     │
                         │ Ollama      │
                         └─────────────┘
 ```
@@ -131,7 +131,7 @@ AMRI/
 | Frontend | React + Vite | Responsive user interface |
 | Vector Database | Qdrant | Vector storage for RAG |
 | Caching | Redis | Semantic caching and session persistence |
-| AI Models | GPT-4o / Llama 3 | Reasoning and generation |
+| AI Models | models / Llama 3 | Reasoning and generation |
 | DevOps | Docker Compose | Container orchestration |
 
 ---
@@ -141,7 +141,7 @@ AMRI/
 ### Prerequisites
 - Docker & Docker Compose installed
 - API Keys for:
-  - **OpenAI** (for GPT-4o)
+  - **GEMINI** (for models)
   - **Tavily** (for web search)
 
 ### Installation
@@ -154,7 +154,7 @@ cd AMRI-Research-Agent
 # Set up Environment Variables
 cp .env.example .env
 # Edit .env and add:
-# OPENAI_API_KEY=your_key_here
+# GEMINI_API_KEY=your_key_here
 # TAVILY_API_KEY=your_key_here
 ```
 
@@ -211,8 +211,8 @@ Create a `.env` file in the project root:
 
 ```env
 # LLM Configuration
-OPENAI_API_KEY=your_openai_key
-LLM_PROVIDER=openai  # or 'ollama' for local inference
+GEMINI_API_KEY=your_GEMINI_key
+LLM_PROVIDER=GEMINI  # or 'ollama' for local inference
 
 # Search API
 TAVILY_API_KEY=your_tavily_key
@@ -282,7 +282,7 @@ Contributions are welcome! Please follow these steps:
 
 ### Current Implementation
 - Vector database: Qdrant (replacing ChromaDB in earlier versions)
-- Supports OpenAI GPT-4o and Ollama Llama 3 inference
+- Supports GEMINI models and Ollama Llama 3 inference
 - Redis-based semantic caching with vector similarity
 
 ### Roadmap
